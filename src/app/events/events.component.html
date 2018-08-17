@@ -1,0 +1,28 @@
+<div class="container events">
+  <div class="row text-center title">
+    <h4>FEATURED EVENTS</h4>
+  </div>
+
+  <div class="row content">
+    <div class="col-md-3" *ngFor="let event of events$">
+      <div class="thumbnail">
+        <img src="data:image/jpeg;base64,{{event.image}}" alt="Event Image">
+        <div class="caption">
+          <div class="row">
+            <div class="col-md-2">
+              <span class="day">{{event.dispDate.split(' ')[0]}}</span>
+              <br>
+              <span class="month">{{event.dispDate.split(' ')[1]}}</span>
+            </div>
+            <div class="col-md-10">
+              <span class="title">{{event.name}}</span>
+              <br>
+              <span class="venue">{{event.venue}}</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

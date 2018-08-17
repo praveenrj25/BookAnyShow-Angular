@@ -1,0 +1,35 @@
+<nav class="navbar navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <i class="fa fa-home"></i>
+      </a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a class="nav-item nav-link" href="#">EXPERIENCES</a></li>
+      <li><a class="nav-item nav-link" href="#">MOVIES</a></li>
+      <li><a class="nav-item nav-link" href="#">EVENTS</a></li>
+      <li><a class="nav-item nav-link" href="#">PLAYS</a></li>
+      <li><a class="nav-item nav-link" href="#">SPORTS</a></li>
+      <li> <a class="nav-item nav-link" href="#">TRAILERS & VIDEOS</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a class="nav-item nav-link" href="#">OFFERS</a></li>
+      <li><a class="nav-item nav-link" href="#">GIFTING</a></li>
+      <li><a class="nav-item nav-link" href="#">SUPPORT</a></li>
+      <li><a class="nav-item nav-link" href="#"><i class="fa fa-bell-o"></i></a></li>
+
+      <li [ngSwitch]="name">
+        <a *ngSwitchDefault class="nav-item nav-link signin" data-toggle="modal" data-target="#myModal">SINGIN</a>
+        <a *ngSwitchCase="'user'" class="nav-item nav-link" (click)="logout()" href="#">USER<i class="fa fa-sign-out"></i></a>
+        <a *ngSwitchCase="'admin'" class="nav-item nav-link" (click)="logout()" href="#">ADMIN<i class="fa fa-sign-out"></i></a>
+      </li>
+      
+      <li><a class="nav-item nav-link" href="#"><i class="fa fa-map-marker"></i> CHENNAI</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <app-login></app-login>
+</div>

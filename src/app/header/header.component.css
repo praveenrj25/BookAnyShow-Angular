@@ -1,0 +1,49 @@
+.navbar {
+    background-color: #333545;
+}
+
+.navbar-nav a {
+    color: #ffffff;
+    font-size: 10pt;
+}
+
+.navbar-nav a:hover {
+    color: #e82e47;
+    background-color: #333545;
+}
+
+.navbar-right a{
+    color: #979A9A;
+    font-size: 10pt;
+}
+
+.navbar-right a:hover{
+    color: #979A9A;
+    font-size: 10pt;
+}
+
+.navbar-right .signin:hover {
+    color: #e82e47;
+    background-color: #333545;
+}
+
+.fa {
+    color: #979A9A;
+}
+
+.fa-home {
+    font-size: 15pt;
+}
+
+.fa-bell-o,.fa-map-marker {
+    font-size: 12pt;
+}
+
+.fa-sign-out {
+    margin-left: 10px;
+    font-size: 13pt;
+}
+
+.modal {
+    padding-top: 100px;
+}
