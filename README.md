@@ -1,6 +1,6 @@
 # BookAnyShow
 
-A simple Full stack event booking app using Angular and bootstrap.
+Full Stack Event Booking Application using Angular and Bootstrap.
 
 ## Development server
 
