@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-events',
@@ -9,12 +9,15 @@ import { DataService } from '../data.service';
 export class EventsComponent implements OnInit {
 
   events$: Object;
+  error = false;
+  @Input() searchQuery: string;
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
     this.data.getEvents().subscribe(
-      data => this.events$ = data
+      data => { this.events$ = data; },
+      error => { this.error = true; }
     );
   }
 

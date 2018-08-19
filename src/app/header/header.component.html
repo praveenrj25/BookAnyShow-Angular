@@ -19,10 +19,10 @@
       <li><a class="nav-item nav-link" href="#">SUPPORT</a></li>
       <li><a class="nav-item nav-link" href="#"><i class="fa fa-bell-o"></i></a></li>
 
-      <li [ngSwitch]="name">
+      <li [ngSwitch]="identity">
+        <a *ngSwitchCase="'user'" class="nav-item nav-link" routerLink="/logout">USER<i class="fa fa-sign-out"></i></a>
+        <a *ngSwitchCase="'admin'" class="nav-item nav-link" routerLink="/logout">ADMIN<i class="fa fa-sign-out"></i></a>
         <a *ngSwitchDefault class="nav-item nav-link signin" data-toggle="modal" data-target="#myModal">SINGIN</a>
-        <a *ngSwitchCase="'user'" class="nav-item nav-link" (click)="logout()" href="#">USER<i class="fa fa-sign-out"></i></a>
-        <a *ngSwitchCase="'admin'" class="nav-item nav-link" (click)="logout()" href="#">ADMIN<i class="fa fa-sign-out"></i></a>
       </li>
       
       <li><a class="nav-item nav-link" href="#"><i class="fa fa-map-marker"></i> CHENNAI</a></li>

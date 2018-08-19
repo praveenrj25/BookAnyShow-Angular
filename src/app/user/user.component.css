@@ -14,3 +14,71 @@
 .carousel-inner .carousel-caption {
     margin-bottom: 25px;
 }
+
+.input-group-btn .btn {
+    background-color: #e82e47;
+    border: 2px solid #e82e47;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    width: 140px;
+    height: 45px;
+}
+
+.input-group-btn .btn:hover {
+    color: white;
+}
+
+.input-group-btn .fa-th-large {
+    float: left;
+    font-size: 20pt;
+    padding-right: 13px;
+}
+
+.input-group-btn .fa-angle-down {
+    float: right;
+    padding-top: 6px;
+}
+
+.input-group-btn span {
+    float: left;
+    font-size: 10pt;
+    font-weight: 300;
+    letter-spacing: 1.2px;
+    padding-top: 4px;
+}
+
+.form-control {
+    width: 500px;
+    height: 44px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    color: black;
+    font-weight: 500;
+    font-size: 11pt;
+}
+
+.form-control:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.form-control::placeholder {
+    color: black;
+    font-weight: 500;
+    font-size: 11pt;
+}
+
+.message {
+    margin-top: 5px;
+    letter-spacing: 1px;
+    font-size: 8pt;
+}
+
+.message span {
+    font-weight: 200;
+}
+
+.message .cinema-names {
+    font-weight: bold;
+}

@@ -78,24 +78,10 @@
 	color: #666;
 }
 
-.btn-register {
-	background-color: #333545;
-	outline: none;
-	color: #fff;
-	font-size: 14px;
-	height: auto;
-	font-weight: normal;
-	padding: 14px 0;
-	text-transform: uppercase;
-	border-color: #333545;
-}
-.btn-register:hover,
-.btn-register:focus {
-	color: #fff;
-	background-color: #333545;
-	border-color: #333545;
-}
-
 .form-group #remember {
     margin-right: 10px;
+}
+
+.form-group #invalid {
+	color: #e82e47;
 }

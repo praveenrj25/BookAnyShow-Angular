@@ -1,3 +1,173 @@
-<p>
-  admin works!
-</p>
+<app-header></app-header>
+
+<div class="container-fluid hero">
+    <div class="row">
+        <div class="col-md-6 title">
+            DASHBOARD
+        </div>
+        <div class="col-md-6 create-event text-right" id="create-event">
+            <button class="btn" (click)="showCrateEventForm()">CREATE EVENT</button>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div *ngIf="error; else eventsTable">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <div class="alert alert-danger">
+                    <strong>Sorry!</strong> Unable to get events right now.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ng-template #eventsTable>
+        <div class="row text-center event-title">
+            <h4>EVENTS</h4>
+        </div>
+        <div class="row events-table">
+            <div class="col-md-10 col-md-offset-1">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#ID</th>
+                            <th>Event Name</th>
+                            <th>Venue</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let event of events$">
+                            <td class="data">{{event.id}}</td>
+                            <td class="data">{{event.name}}</td>
+                            <td class="data">{{event.venue}}</td>
+                            <td class="data">{{event.startDate}}</td>
+                            <td class="data">{{event.endDate}}</td>
+                            <td><a class="btn btn-warning" (click)="showUpdateForm(event.id)">Update</a></td>
+                            <td><button class="btn btn-danger" (click)="onDeleteEvent(event.id)">Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </ng-template>
+</div>
+
+<!-- create event form -->
+<div class="container" id="create">
+    <div class="row title text-center">
+        <div class="col-md-10">
+            <h4>Create Event</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-3">
+            <form class="form-horizontal" (submit)="onCreateEvent($event)" ngNativeValidate>
+                <div class="form-group" *ngIf="!isEventCreated">
+                    <label class="control-label col-sm-2"></label>
+                    <div class="col-sm-5">
+                        <span id="went-wrong">* Something went wrong</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="name">Event Name:</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter event name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="venue">Event Venue:</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="venue" id="venue" placeholder="Enter event venue" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="startDate">Start Date:</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="startDate" id="startDate" placeholder="yyyy-mm-dd" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="endDate">End Date:</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="endDate" id="endDate" placeholder="yyyy-mm-dd" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="image">Event Image:</label>
+                    <div class="col-sm-5">
+                        <input type="file" name="image" id="image" (change)="onFileSelected($event)" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2"></label>
+                    <div class="col-sm-5">
+                        <input type="submit" value="Create" class="btn btn-primary">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- update event form -->
+<div class="container" id="update">
+    <div class="row title text-center">
+        <div class="col-md-10">
+            <h4>Update Event</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-3">
+            <form class="form-horizontal" (submit)="onUpdateEvent($event)" ngNativeValidate>
+                <div class="form-group" *ngIf="!isEventCreated">
+                    <label class="control-label col-sm-2"></label>
+                    <div class="col-sm-5">
+                        <span id="went-wrong">* Something went wrong</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="upname">Event Name:</label>
+                    <div class="col-sm-5">
+                        <input type="hidden" id="upid" [value]="toUpdateEvent.id">
+                        <input type="text" class="form-control" name="name" id="upname" [value]="toUpdateEvent.name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="upvenue">Event Venue:</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="venue" id="upvenue" [value]="toUpdateEvent.venue" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="upstartDate">Start Date:</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="startDate" id="upstartDate" [value]="toUpdateEvent.startDate" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="upendDate">End Date:</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="endDate" id="upendDate" [value]="toUpdateEvent.endDate" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="upimage">Event Image:</label>
+                    <div class="col-sm-5">
+                        <input type="file" name="image" id="upimage" (change)="onFileSelected($event)" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2"></label>
+                    <div class="col-sm-5">
+                        <input type="submit" value="Update" class="btn btn-primary">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

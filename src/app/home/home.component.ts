@@ -1,22 +1,18 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { DataService } from '../data.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit, AfterViewInit {
-  authType: any;
+export class HomeComponent implements OnInit {
 
-  constructor(private dataService: DataService) {
-    this.authType = dataService.authName;
-  }
+  identity = localStorage.getItem('identity');
+
+  constructor() { }
 
   ngOnInit() {
-  }
 
-  ngAfterViewInit() {
   }
 
 }

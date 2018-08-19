@@ -1,0 +1,92 @@
+.hero {
+    padding: 65px 20px 10px;
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+}
+
+.hero .title {
+    float: left;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 12pt;
+    padding-top: 7px;
+}
+
+.hero .create-event .btn{
+    background: #e82e47;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.alert {
+    margin-top: 150px;
+}
+
+.event-title h4 {
+    letter-spacing: 2px;
+    display: inline-block;
+    padding-bottom: 10px;
+    position: relative;
+    margin-top: 130px;
+}
+
+.event-title h4:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    border-bottom: 3px solid #e82e47;
+}
+
+.events-table {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.events-table .table {
+    background: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 12pt;
+}
+
+.events-table .table th,
+.events-table .table td {
+    padding: 10px 0 10px 10px;
+}
+
+.events-table .table .data{
+    padding-top: 17px;
+}
+
+#create {
+    display: none;
+}
+
+#create .title {
+    margin-bottom: 20px;
+}
+
+#create #went-wrong {
+    color: #e82e47;
+}
+
+#update {
+    display: none;
+}
+
+#update .title {
+    margin-bottom: 20px;
+}
+
+#update #went-wrong {
+    color: #e82e47;
+}

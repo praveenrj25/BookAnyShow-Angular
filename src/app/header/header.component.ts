@@ -1,24 +1,17 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { DataService } from '../data.service';
-declare var $: any;
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit, AfterViewInit {
+export class HeaderComponent implements OnInit {
 
-  name: any;
+  identity = localStorage.getItem('identity');
 
-  constructor(private dataService: DataService) {
-    this.name = dataService.authName;
-  }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  ngAfterViewInit() {
   }
 
 }

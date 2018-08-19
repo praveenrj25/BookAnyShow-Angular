@@ -1,8 +1,8 @@
-<div [ngSwitch]="authType">
+<div [ngSwitch]="identity">
   <div *ngSwitchCase="'admin'">
     <app-admin></app-admin>
   </div>
   <div *ngSwitchDefault>
-      <app-user></app-user>
-    </div>
+    <app-user></app-user>
+  </div>
 </div>
